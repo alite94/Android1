@@ -1,10 +1,12 @@
 package com.example.ps437.management;
 
-import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,17 +15,57 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView idText= (TextView) findViewById(R.id.idText);
-        TextView passwordText= (TextView) findViewById(R.id.passwordText);
-        TextView welcomeMessage= (TextView) findViewById(R.id.welcomeMessage);
+        final Button noticeButton = (Button) findViewById(R.id.noticeButton);
+        final Button mainButton = (Button) findViewById(R.id.mainButton);
+        final Button angelButton = (Button) findViewById(R.id.angleButton);
+        final LinearLayout notice = (LinearLayout) findViewById(R.id.notice);
 
-        Intent intent = getIntent();
-        String userID = intent.getStringExtra("userID");
-        String userPassword = intent.getStringExtra("userPassword");
-        String message = "어서오세요." + userID + "님!";
+        noticeButton.setOnClickListener(new View.OnClickListener(){
 
-        idText.setText(userID);
-        passwordText.setText(userPassword);
-        welcomeMessage.setText(message);
+
+            @Override
+            public void onClick(View view) {
+                notice.setVisibility(View.GONE);
+                noticeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                mainButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                angelButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new NoticeFragment());
+                fragmentTransaction.commit();
+            }
+        });
+        mainButton.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View view) {
+                notice.setVisibility(View.GONE);
+                noticeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                mainButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                angelButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new MainFragment());
+                fragmentTransaction.commit();
+            }
+        });
+        angelButton.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View view) {
+                notice.setVisibility(View.GONE);
+                noticeButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                mainButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                angelButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new AngelFragment());
+                fragmentTransaction.commit();
+            }
+        });
+
+
     }
 }

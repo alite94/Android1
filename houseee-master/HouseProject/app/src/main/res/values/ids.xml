@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="noticeText" type="id" />
+    <item name="nameText" type="id" />
+    <item name="dateText" type="id" />
+</resources>

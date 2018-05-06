@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="major"> <!--액티비티 부분에서 "major"이라는 이름으로 참조 가능하게 된다.-->
+        <item>컴퓨터과학과</item>
+        <item>식품영양학과</item>
+        <item>의류학과</item>
+        <item>간호학과</item>
+        <item>생물학과</item>
+        <item>민속무용학과</item>
+    </string-array>
+
+
+
+
+</resources>
